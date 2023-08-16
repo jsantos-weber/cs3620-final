@@ -1,0 +1,48 @@
+{% extends 'nailapp/base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+         body { background: dimgrey !important; }
+</style>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+<body >
+
+{% block body %}
+<div class="card-group">
+{% for nail_item in nail_object %}
+    <div class="card mx-auto row text-white bg-dark mb-3" style="height: 20%; width: 25%" >
+        <div class="card-body col">
+            <h1 class="card-title col" style="text-align: center">{{ nail_item.name}}</h1>
+            <h2 class="card-text col" style="text-align: center">{{ nail_item.description }}</h2>
+            <h3 class="card-text col" style="text-align: center">Collection: {{ nail_item.category }}</h3>
+            <img class="card-img col" src=" ../../../{{ nail_item.image }}" height="25%" width="25%"/>
+            <a href="{% url 'detail' nail_item.id %}" class="btn btn-primary align-items-center">Details</a>
+        </div>
+    </div>
+    <br>
+{% endfor %}
+</div>
+<div class="card mx-auto text-white bg-dark mb-3" style="height: 25%; width: 45%; text-align: center" >
+    <div class="card-body">
+{% if nail_object.has_previous %}
+    <a href="?page=1">First</a>
+    <a href="?page={{ nail_object.previous_page_number }}">Previous</a>
+{% endif %}
+
+Page: {{ nail_object.number }} of {{ nail_object.paginator.num_pages }}
+
+{% if nail_object.has_next %}
+    <a href="?page={{ nail_object.next_page_number }}">Next</a>
+    <a href="?page={{ nail_object.paginator.num_pages }}">Last</a>
+{% endif %}
+</div>
+    </div>
+{% endblock %}
+</div>
+</body>
+</html>

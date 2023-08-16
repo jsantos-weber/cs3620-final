@@ -1,0 +1,46 @@
+{% extends 'nailapp/base.html' %}
+{% block body %}
+<div style="text-align: center" style="color: white">
+        <h1 style="color: white">Order Page</h1>
+    <form action="/submit_order" method="post">
+        <h2 style="color: white">Halloween Collection:</h2>
+
+        <label for="item1" style="color: white">Halloween:</label>
+        <input type="number" id="item1" name="item1_quantity" min="0" value="0" max="3">
+
+        <label for="item2" style="color: white">Oogie:</label>
+        <input type="number" id="item2" name="item2_quantity" min="0" value="0" max="3">
+
+        <label for="item3" style="color: white">Pinkyween:</label>
+        <input type="number" id="item3" name="item3_quantity" min="0" value="0" max="3">
+
+        <label for="item4" style="color: white">Stitch, Cold & Hot:</label>
+        <input type="number" id="item4" name="item3_quantity" min="0" value="0" max="3">
+
+        <br>
+        <h2 style="color: white">Summer Collection:</h2>
+
+        <label for="item5" style="color: white">Lilo & Stitch:</label>
+        <input type="number" id="item5" name="item5_quantity" min="0" value="0" max="3">
+
+        <label for="item6" style="color: white">Pink Levels:</label>
+        <input type="number" id="item6" name="item6_quantity" min="0" value="0" max="3">
+
+        <label for="item7" style="color: white">Blue Hypnosis:</label>
+        <input type="number" id="item7" name="item7_quantity" min="0" value="0" max="3">
+
+        <label for="item8" style="color: white">Watermelon Drops:</label>
+        <input type="number" id="item8" name="item8_quantity" min="0" value="0" max="3">
+
+        <h2 style="color: white">Shipping Information:</h2>
+
+        <label for="name" style="color: white">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="address" style="color: white">Shipping Address:</label>
+        <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+        <br>
+        <input type="submit" value="Place Order">
+    </form>
+</div>
+{% endblock %}

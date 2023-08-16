@@ -1,0 +1,35 @@
+{% extends 'nailapp/base.html' %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'hobbies/style.css' %}">
+</head>
+<body >
+{% block body %}
+<div class="has-bg-img bg-purple bg-blend-screen" >
+</div>
+<div class="blurred-box" style="text-align: center">
+    <h1>Contact Us</h1>
+    <form>
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Your Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+{% endblock %}
+</body>
+</html>
